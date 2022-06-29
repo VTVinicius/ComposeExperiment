@@ -4,10 +4,17 @@ apply plugin: 'kotlin-android'
 
 apply from: "$rootProject.projectDir/android-common.gradle"
 
+android {
+    buildFeatures {
+        compose true
+    }
+}
+
 dependencies {
     implementation project(':data')
     dataRemoteDependencies.each { add(it.configuration, it.dependency, it.options) }
     androidTestCommonsDependencies.forEach { add(it.configuration, it.dependency, it.option) }
+    compose.each { add(it.configuration, it.dependency, it.options) }
 }
 
 repositories {

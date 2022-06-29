@@ -78,4 +78,13 @@ ext {
             [configuration: "implementation", dependency: "$okhttp"]
     ]
 
+    compose = [
+            [configuration: "api", dependency: "$composeActivity"],
+            [configuration: "api", dependency: "$composeMaterialDesign"],
+            [configuration: "api", dependency: "$composeAnimations"],
+            [configuration: "api", dependency: "$composePreview"],
+            [configuration: "api", dependency: "$composeViewModel"],
+            [configuration: "api", dependency: "$composeRuntime"],
+            [configuration: "api", dependency: "$composeUi"]
+    ]
 }

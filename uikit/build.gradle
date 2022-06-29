@@ -3,6 +3,17 @@ apply plugin:'kotlin-android'
 
 apply from: "$rootProject.projectDir/android-common.gradle"
 
+android {
+    buildFeatures {
+        compose true
+    }
+}
+
 dependencies {
     appDependencies.each { add(it.configuration, it.dependency, it.options) }
+    compose.each { add(it.configuration, it.dependency, it.options) }
+}
+
+repositories {
+    mavenCentral()
 }

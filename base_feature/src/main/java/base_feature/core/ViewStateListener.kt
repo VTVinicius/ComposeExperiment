@@ -9,6 +9,10 @@ import java.net.UnknownHostException
 
 interface ViewStateListener {
 
+
+
+
+
         fun onStateError(error: Throwable)
 
         fun onStateLoading()

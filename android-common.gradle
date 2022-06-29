@@ -16,12 +16,17 @@ android {
         }
     }
 
+    composeOptions {
+        kotlinCompilerExtensionVersion "1.2.0-rc02"
+    }
+
     defaultConfig {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     kotlinOptions {
         freeCompilerArgs = ["-Xallow-result-return-type"]
+        useIR = true
     }
 
     compileOptions {
@@ -43,5 +48,6 @@ android {
     buildFeatures {
         viewBinding true
         dataBinding false
+        compose = true
     }
 }

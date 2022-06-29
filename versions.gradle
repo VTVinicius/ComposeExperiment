@@ -1,7 +1,7 @@
 ext {
 
     //versions
-    androidCompileSdkVersion = 31
+    androidCompileSdkVersion = 32
     androidMinSdkVersion = 23
     androidTargetSdkVersion = 30
     androidVersionCode = 405
@@ -44,5 +44,10 @@ ext {
     //room
     roomVersion = "2.2.5"
     sqliteVersion = "2.1.0"
+
+    //compose
+    composeActivity = "1.4.0"
+    composeVersion = "1.2.0-rc01"
+    composeViewModel = "2.4.1"
 
 }

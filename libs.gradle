@@ -51,4 +51,16 @@ ext {
 
     //sqlite
     sqlite = "androidx.sqlite:sqlite:$sqliteVersion"
+
+    //compose
+    composeActivity = "androidx.activity:activity-compose:$composeActivity"
+    composeMaterialDesign = "androidx.compose.material:material:$composeVersion"
+    composeAnimations = "androidx.compose.animation:animation:$composeVersion"
+    composePreview = "androidx.compose.ui:ui-tooling:$composeVersion"
+    composeViewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:$composeViewModel"
+    composeUITests = "androidx.compose.ui:ui-test-junit4:$composeVersion"
+    composeUi = "androidx.compose.ui:ui:$composeVersion"
+    composeRuntime = "androidx.compose.runtime:runtime:1.1.0"
+
 }
+
