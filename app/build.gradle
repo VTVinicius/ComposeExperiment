@@ -23,6 +23,7 @@ dependencies {
     implementation project(':di')
     implementation project(':base_feature')
     implementation project(':navigation')
+    implementation project(':uikit')
 
     appDependencies.each { add(it.configuration, it.dependency, it.options) }
 }
