@@ -1,9 +1,13 @@
-package com.example.feature.nomedatela
+package com.example.feature.home_screen
 
 import androidx.lifecycle.ViewModel
 import org.koin.core.KoinComponent
 
-class ExampleViewModel: ViewModel(), KoinComponent {
+class HomeScreenViewModel: ViewModel(), KoinComponent {
+
+
+
+
 
 //    private val getUsersLocalUseCase: GetUsersLocalUseCase by useCase()
 //
@@ -21,4 +25,5 @@ class ExampleViewModel: ViewModel(), KoinComponent {
 //            }
 //        )
 //    }
+
 }

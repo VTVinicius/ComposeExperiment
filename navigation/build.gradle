@@ -12,6 +12,7 @@ dependencies {
     implementation project(path: ':feature')
 
     intentDependencies.each { add(it.configuration, it.dependency) }
+    compose.each { add(it.configuration, it.dependency, it.options) }
 }
 
 repositories {

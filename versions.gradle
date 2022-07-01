@@ -49,5 +49,6 @@ ext {
     composeActivity = "1.4.0"
     composeVersion = "1.2.0-rc01"
     composeViewModel = "2.4.1"
+    navComposeVersion = "2.4.2"
 
 }

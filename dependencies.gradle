@@ -85,6 +85,7 @@ ext {
             [configuration: "api", dependency: "$composePreview"],
             [configuration: "api", dependency: "$composeViewModel"],
             [configuration: "api", dependency: "$composeRuntime"],
-            [configuration: "api", dependency: "$composeUi"]
+            [configuration: "api", dependency: "$composeUi"],
+            [configuration: "api", dependency: "$composeNavigation"],
     ]
 }

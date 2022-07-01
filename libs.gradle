@@ -61,6 +61,7 @@ ext {
     composeUITests = "androidx.compose.ui:ui-test-junit4:$composeVersion"
     composeUi = "androidx.compose.ui:ui:$composeVersion"
     composeRuntime = "androidx.compose.runtime:runtime:1.1.0"
+    composeNavigation = "androidx.navigation:navigation-compose:$navComposeVersion"
 
 }
 
