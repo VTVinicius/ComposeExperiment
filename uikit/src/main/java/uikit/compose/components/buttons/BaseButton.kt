@@ -2,6 +2,7 @@ package uikit.compose.components.buttons
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -24,6 +25,16 @@ fun BaseIconRightButton(iconRight: Int?) {
         Image(
             painterResource(id = it),
             contentDescription = null
+        )
+    } ?: Spacer(modifier = Modifier.size(48.dp))
+}
+
+@Composable
+fun BaseIconCenterButton(iconCenter: Int?) {
+    iconCenter?.let {
+        Image(
+            painterResource(id = it),
+            contentDescription = null,
         )
     } ?: Spacer(modifier = Modifier.size(48.dp))
 }

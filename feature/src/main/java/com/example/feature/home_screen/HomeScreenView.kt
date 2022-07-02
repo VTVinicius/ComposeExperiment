@@ -9,6 +9,7 @@ import androidx.navigation.NavController
 import com.example.feature.R
 import com.example.feature.commom.navigation.HomeNavigation
 import com.example.feature.home_screen.components.ComposeImage
+import uikit.compose.components.buttons.BackButton
 import uikit.compose.components.buttons.OutlineButton
 
 
@@ -30,6 +31,8 @@ fun LayoutHomeScreen(listener: HomeNavigation?, navController: NavController) {
             onClick = { listenerNav?.goToCardsListScreen(navController = navController) },
             backgroundColor = R.color.lightGreen,
         )
+        
+        BackButton(onClick = { /*TODO*/ })
     }
 
 
