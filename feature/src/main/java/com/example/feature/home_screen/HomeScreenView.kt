@@ -27,7 +27,7 @@ fun LayoutHomeScreen(listener: HomeNavigation?, navController: NavController) {
 
         OutlineButton(
             text = "Perfil",
-            onClick = { listenerNav?.goToNoScreen(navController = navController) },
+            onClick = { listenerNav?.goToCardsListScreen(navController = navController) },
             backgroundColor = R.color.lightGreen,
         )
     }

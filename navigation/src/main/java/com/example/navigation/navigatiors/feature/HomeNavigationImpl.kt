@@ -12,12 +12,12 @@ class HomeNavigationImpl() : HomeNavigation {
         navController.navigate("homeScreen")
     }
 
-    override fun goToYesScreen(navController: NavController) {
-        navController.navigate("yesScreen")
+    override fun goToProfileScreen(navController: NavController) {
+        navController.navigate("profileScreen")
     }
 
-    override fun goToNoScreen(navController: NavController) {
-        navController.navigate("noScreen")
+    override fun goToCardsListScreen(navController: NavController) {
+        navController.navigate("cardsListScreen")
     }
 
 }
