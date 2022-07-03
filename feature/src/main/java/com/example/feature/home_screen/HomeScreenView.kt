@@ -31,8 +31,7 @@ fun LayoutHomeScreen(listener: HomeNavigation?, navController: NavController) {
             onClick = { listenerNav?.goToCardsListScreen(navController = navController) },
             backgroundColor = R.color.lightGreen,
         )
-        
-        BackButton(onClick = { /*TODO*/ })
+
     }
 
 
