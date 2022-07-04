@@ -11,7 +11,7 @@ fun CardsListLayout(){
    Column() {
 
    }
-   TopBar(onClickBack = {/*TODO */}, title = "Cards List", onClickExit = {})
+   TopBar(onClickBack = {/*TODO */}, title = "Card List", onClickExit = {})
 
 
 }

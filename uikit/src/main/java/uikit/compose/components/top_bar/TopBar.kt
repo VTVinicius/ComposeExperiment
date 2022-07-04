@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import com.example.uikit.R
+import uikit.compose.TitleText
 import uikit.compose.components.buttons.BackButton
 
 @Composable
@@ -18,31 +19,29 @@ fun TopBar(
     onClickExit: () -> Unit,
     title: String = ""
 ) {
-    Row(modifier = Modifier
-        .fillMaxWidth()
-        .background(colorResource(id = R.color.lightGreen))
-        .padding(top = 16.dp, bottom = 16.dp),
-        verticalAlignment = Alignment.CenterVertically
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(colorResource(id = R.color.lightGreen))
+            .padding(top = 16.dp, bottom = 16.dp)
     ) {
-        Row(
+        Box(
             modifier = Modifier
                 .padding(start = 16.dp),
         ) {
-            Row(
-                horizontalArrangement = Arrangement.Start,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                BackButton(onClick = { onClickBack })
-            }
-
+            BackButton(onClick = { onClickBack })
         }
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center,
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.Center),
+            contentAlignment = Alignment.Center,
         ) {
-            Text(text = title)
+            TitleText(text = title)
         }
     }
+
 }
+
 
 

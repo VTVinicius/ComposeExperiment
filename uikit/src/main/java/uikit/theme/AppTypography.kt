@@ -37,6 +37,11 @@ data class AppTypography(
         fontFamily = nunitoRegular,
         fontWeight = FontWeight.Normal,
         fontSize = 12.sp
+    )  ,
+    val title: TextStyle = TextStyle(
+        fontFamily = nunitoRegular,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp
     )
 )
 
