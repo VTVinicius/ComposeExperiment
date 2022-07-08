@@ -29,7 +29,7 @@ fun OutlineButton(
     iconLeft: Int? = null,
     iconRight: Int? = null,
     modifier: Modifier = Modifier,
-    backgroundColor : Int = R.color.black,
+    backgroundColor : Int = R.color.white,
     textColor: Int = R.color.black
 ) {
     OutlinedButton(

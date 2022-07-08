@@ -16,7 +16,6 @@ import uikit.compose.components.buttons.BackButton
 @Composable
 fun TopBar(
     onClickBack: () -> Unit,
-    onClickExit: () -> Unit,
     title: String = ""
 ) {
     Box(

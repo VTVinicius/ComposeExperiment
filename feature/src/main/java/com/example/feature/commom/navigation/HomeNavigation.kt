@@ -11,4 +11,6 @@ interface HomeNavigation {
 
     fun goToCardsListScreen(navController: NavController)
 
+    fun goToPopBackStack(navController: NavController)
+
 }

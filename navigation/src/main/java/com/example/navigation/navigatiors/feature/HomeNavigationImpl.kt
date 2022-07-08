@@ -20,6 +20,10 @@ class HomeNavigationImpl() : HomeNavigation {
         navController.navigate("cardsListScreen")
     }
 
+    override fun goToPopBackStack(navController: NavController) {
+        navController.popBackStack()
+    }
+
 }
 
 

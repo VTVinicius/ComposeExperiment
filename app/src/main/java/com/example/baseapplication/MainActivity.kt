@@ -34,7 +34,7 @@ class MainActivity: ComponentActivity() {
         NavHost(navController = navController, startDestination = "homeScreen") {
             composable("homeScreen") { LayoutHomeScreen(HomeNavigationImpl(), navController) }
             composable("profileScreen") { ProfileLayout() }
-            composable("cardsListScreen") { CardsListLayout() }
+            composable("cardsListScreen") { CardsListLayout(HomeNavigationImpl(), navController) }
             /*...*/
         }
     }
