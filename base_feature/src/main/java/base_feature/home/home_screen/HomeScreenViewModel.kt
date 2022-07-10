@@ -1,0 +1,29 @@
+package base_feature.home.home_screen
+
+import androidx.lifecycle.ViewModel
+import org.koin.core.KoinComponent
+
+class HomeScreenViewModel: ViewModel(), KoinComponent {
+
+
+
+
+
+//    private val getUsersLocalUseCase: GetUsersLocalUseCase by useCase()
+//
+//    private val _getUsersLocalViewState by viewState<List<GitUserModel>>()
+//
+//    val getUsersLocalViewState = _getUsersLocalViewState.asLiveData()
+//
+//    fun getUsersLocal() {
+//        getUsersLocalUseCase(
+//            onSuccess = {
+//                _getUsersLocalViewState.postSuccess(it)
+//            },
+//            onError = {
+//                _getUsersLocalViewState.postError(it)
+//            }
+//        )
+//    }
+
+}
