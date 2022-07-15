@@ -10,6 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.feature.cards_list.CardsListLayout
 import base_feature.home.home_screen.LayoutHomeScreen
 import com.example.feature.profile.ProfileLayout
+import com.example.navigation.navigatiors.base_feature.HomeNavigationImpl
 import com.example.navigation.navigatiors.profile.ProfileNavigationImpl
 import uikit.theme.ComposeThemes
 
@@ -22,7 +23,7 @@ class MainActivity: ComponentActivity() {
         setContent {
             ComposeThemes {
                 NavigationHostController()
-                NavigationPokedexController()
+//                NavigationPokedexController()
             }
         }
     }
@@ -33,27 +34,27 @@ class MainActivity: ComponentActivity() {
         val navController = rememberNavController()
 
         NavHost(navController = navController, startDestination = "homeScreen") {
-            composable("homeScreen") { LayoutHomeScreen(ProfileNavigationImpl(), navController) }
+            composable("homeScreen") { LayoutHomeScreen(HomeNavigationImpl(), navController) }
             composable("profileScreen") { ProfileLayout() }
             composable("cardsListScreen") { CardsListLayout(ProfileNavigationImpl(), navController) }
             composable("pokedexNavigation") {  }
             /*...*/
         }
     }
-
-    @Composable
-    fun NavigationPokedexController() {
-
-        val navController = rememberNavController()
-
-        NavHost(navController = navController, startDestination = "pokedexHomeScreen") {
-            composable("pokedexHomeScreen") { PokedexHomeLayout() }
-            composable("profileScreen") { ProfileLayout() }
-            composable("cardsListScreen") { CardsListLayout(ProfileNavigationImpl(), navController) }
-            composable("pokedexNavigation") {  }
-            /*...*/
-        }
-    }
+//
+//    @Composable
+//    fun NavigationPokedexController() {
+//
+//        val navController = rememberNavController()
+//
+//        NavHost(navController = navController, startDestination = "pokedexHomeScreen") {
+//            composable("pokedexHomeScreen") { PokedexHomeLayout() }
+//            composable("profileScreen") { ProfileLayout() }
+//            composable("cardsListScreen") { CardsListLayout(ProfileNavigationImpl(), navController) }
+//            composable("pokedexNavigation") {  }
+//            /*...*/
+//        }
+//    }
 
 
 }

@@ -25,7 +25,7 @@ ext {
     kotlinTest = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     kotlinJunit = "org.jetbrains.kotlin:kotlin-test"
     mockitoKotlin = "org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVersion"
-    koinTest = "org.koin:koin-test:$koinVersion"
+    koinTest = "io.insert-koin:koin-test-junit4:$koinVersion"
     coreTesting = "androidx.arch.core:core-testing:$coreTestVersion"
     robolectric = "org.robolectric:robolectric:$robolectricVersion"
     mockk = "io.mockk:mockk:$mockkVersion"

@@ -8,11 +8,14 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import base_feature.home.home_screen.components.ComposeImage
 import base_feature.home.navigation.HomeNavigation
+import org.koin.androidx.compose.getViewModel
 import uikit.compose.components.buttons.OutlineButton
 
 
 @Composable
 fun LayoutHomeScreen(listener: HomeNavigation?, navController: NavController) {
+
+    var viewModel =  getViewModel<HomeScreenViewModel>()
 
     val listenerNav = listener
 
@@ -27,7 +30,7 @@ fun LayoutHomeScreen(listener: HomeNavigation?, navController: NavController) {
         OutlineButton(
             text = "Perfil",
             onClick = {  },
-            backgroundColor = R.color.lightGreen,
+//            backgroundColor = R.color.lightGreen,
         )
 
     }

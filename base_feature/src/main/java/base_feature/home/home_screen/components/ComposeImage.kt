@@ -9,13 +9,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.example.feature.R
+import com.example.base_feature.R
 
 @Composable
 fun ComposeImage() {
 
     Row(
-        Modifier.fillMaxWidth()
+        Modifier
+            .fillMaxWidth()
             .padding(top = 48.dp),
         horizontalArrangement = Arrangement.Center
     ) {
@@ -24,7 +25,6 @@ fun ComposeImage() {
             contentDescription = ""
         )
     }
-
 
 
 }

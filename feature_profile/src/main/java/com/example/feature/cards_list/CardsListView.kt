@@ -19,7 +19,7 @@ import uikit.compose.components.top_bar.TopBar
 fun CardsListLayout(listener: ProfileNavigation?, navController: NavController) {
     val listenerNav = listener
     val list: MutableList<InfosCard> = mutableListOf()
-    val viewModel by viewModel<CardListViewModel>()
+//    val viewModel by viewModel<CardListViewModel>()
 
 
     Column(Modifier.background(colorResource(id = R.color.background))) {

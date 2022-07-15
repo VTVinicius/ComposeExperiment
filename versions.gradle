@@ -24,7 +24,7 @@ ext {
     lifecycleExtVersion = "2.2.0"
 
     //koin
-    koinVersion = "2.0.1"
+    koinVersion = "3.2.0"
 
     //retrofit
     retrofitVersion = "2.9.0"

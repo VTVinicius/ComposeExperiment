@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
@@ -22,7 +21,8 @@ import base_feature.utils.extensions.hideKeyboard
 import base_feature.utils.extensions.showBottomSheet
 import com.example.base_feature.R
 import com.example.domain.exception.DataSourceException
-import org.koin.core.KoinComponent
+import org.koin.core.component.KoinComponent
+
 
 abstract class BaseFragment <Binding : ViewBinding> : Fragment(), ViewStateListener, KoinComponent {
 

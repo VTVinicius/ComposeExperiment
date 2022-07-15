@@ -53,3 +53,14 @@ fun PrimaryButton(
     }
 }
 
+@Preview
+@Composable
+fun PrimaryButtonPreview() {
+    PrimaryButton(
+        text = "OutlineButton",
+        onClick = {},
+        iconLeft = null,
+        iconRight = null,
+        modifier = androidx.compose.ui.Modifier.padding(16.dp)
+    )
+}

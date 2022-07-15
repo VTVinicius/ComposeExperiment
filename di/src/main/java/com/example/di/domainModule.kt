@@ -1,6 +1,7 @@
 package com.example.di
 
 import com.example.domain.core.ThreadContextProvider
+import com.example.domain.usecase.referenciadouso.ExampleUseCase
 import kotlinx.coroutines.CoroutineScope
 import org.koin.dsl.module
 
@@ -10,9 +11,10 @@ val domainModule = module {
         ThreadContextProvider()
     }
 
-//    factory { (scope: CoroutineScope) ->
-//        SearchUserUseCase(
-//            scope = scope,
-//            githubRepository = get()
-//        )
+    factory { (scope: CoroutineScope) ->
+        ExampleUseCase(
+            scope = scope,
+            string = ""
+        )
     }
+}
