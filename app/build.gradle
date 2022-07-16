@@ -22,6 +22,8 @@ dependencies {
 
     implementation project(':di')
     implementation project(':base_feature')
+    implementation project(':feature_pokedex')
+    implementation project(':feature_profile')
     implementation project(':navigation')
     implementation project(':uikit')
 
