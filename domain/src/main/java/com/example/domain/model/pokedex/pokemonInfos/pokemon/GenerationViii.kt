@@ -1,5 +1,5 @@
 package com.example.data_remote.model.pokemon
 
 data class GenerationViii(
-    val icons: IconsX
+    val icons: Icons
 )
