@@ -1,4 +1,4 @@
-package com.example.feature_pokedex.home.common.navigation
+package com.example.feature_pokedex.common.navigation
 
 import androidx.navigation.NavController
 

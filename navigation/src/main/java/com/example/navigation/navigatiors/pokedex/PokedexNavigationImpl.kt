@@ -1,7 +1,7 @@
 package com.example.navigation.navigatiors.pokedex
 
 import androidx.navigation.NavController
-import com.example.feature_pokedex.home.common.navigation.PokedexNavigation
+import com.example.feature_pokedex.common.navigation.PokedexNavigation
 
 class PokedexNavigationImpl(): PokedexNavigation {
 

@@ -5,7 +5,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import base_feature.home.navigation.HomeNavigation
-import com.example.feature_pokedex.home.common.navigation.PokedexNavigation
+import com.example.feature_pokedex.common.navigation.PokedexNavigation
 import uikit.compose.components.buttons.OutlineButton
 
 
