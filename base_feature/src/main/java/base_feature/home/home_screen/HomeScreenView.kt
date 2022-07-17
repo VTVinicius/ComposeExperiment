@@ -22,21 +22,30 @@ fun LayoutHomeScreen(listener: HomeNavigation?, navController: NavController) {
     val listenerNav = listener
 
     Column(
-        Modifier.fillMaxSize(),
+        Modifier.fillMaxSize()
+            .padding(32.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         ComposeImage()
 
-        Spacer(modifier = Modifier.padding(48.dp))
+        Spacer(modifier = Modifier.height(48.dp))
 
         OutlineButton(
             text = "Perfil",
-            onClick = { listener?.goToPokedexNavigation(navController)},
+            onClick = { listener?.goToProfileNavigation(navController) },
             backgroundColor = R.color.lightGreen
         )
-        
+
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        OutlineButton(
+            text = "Pokedex",
+            onClick = { listener?.goToPokedexNavigation(navController) },
+            backgroundColor = R.color.lightGreen
+        )
 
     }
-
-
 }
+
+

@@ -5,7 +5,9 @@ import androidx.navigation.NavController
 interface PokedexNavigation {
 
     fun goToHomeNavigation(navController: NavController)
-    fun goToPokedexNavigation(navController: NavController)
-    fun goToHomePokedex(navController: NavController)
+
+    fun goBackToHomePokedex(navController: NavController)
+
+    fun goToLayout2Pokedex(navController: NavController)
 
 }

@@ -1,7 +1,9 @@
 package uikit.compose.components.buttons
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ButtonColors
@@ -32,24 +34,27 @@ fun OutlineButton(
     backgroundColor : Int = R.color.white,
     textColor: Int = R.color.black
 ) {
-    OutlinedButton(
-        colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = backgroundColor)),
-        border = BorderStroke(1.dp, colorResource(id = R.color.black)),
-        shape = RoundedCornerShape(8.dp),
-        onClick = onClick
-    ) {
-        BaseIconLeftButton(iconLeft = iconLeft)
-        Text(
-            text = text,
-            style = TextStyle(
-                color = colorResource(id = textColor),
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center
-            ),
-            modifier = Modifier.padding(4.dp)
-        )
-        BaseIconRightButton(iconRight = iconRight)
+    Row(Modifier.fillMaxWidth()) {
+        OutlinedButton(
+            colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = backgroundColor)),
+            border = BorderStroke(1.dp, colorResource(id = R.color.black)),
+            shape = RoundedCornerShape(8.dp),
+            onClick = onClick,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            BaseIconLeftButton(iconLeft = iconLeft)
+            Text(
+                text = text,
+                style = TextStyle(
+                    color = colorResource(id = textColor),
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center
+                ),
+                modifier = Modifier.padding(4.dp)
+            )
+            BaseIconRightButton(iconRight = iconRight)
+        }
     }
 }
 
