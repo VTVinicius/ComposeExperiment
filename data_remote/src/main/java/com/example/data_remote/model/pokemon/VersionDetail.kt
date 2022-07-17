@@ -6,5 +6,5 @@ data class VersionDetail(
     @SerializedName("rarity")
     val rarity: Int,
     @SerializedName("version")
-    val version: Version
+    val version: VersionModel
 )

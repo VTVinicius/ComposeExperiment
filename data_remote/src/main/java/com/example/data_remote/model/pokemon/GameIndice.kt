@@ -6,5 +6,5 @@ data class GameIndice(
     @SerializedName("game_index")
     val game_index: Int,
     @SerializedName("version")
-    val version: Version
+    val version: VersionModel
 )

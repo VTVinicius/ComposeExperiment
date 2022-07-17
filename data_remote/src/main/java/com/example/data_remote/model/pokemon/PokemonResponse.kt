@@ -4,22 +4,22 @@ import com.google.gson.annotations.SerializedName
 
 data class PokemonResponse(
     @SerializedName("abilities")
-    val abilities: List<Ability>,
+    val abilities: List<AbilityModel>,
 
     @SerializedName("base_experience")
     val base_experience: Int,
 
     @SerializedName("forms")
-    val forms: List<Form>,
+    val forms: List<FormModel>,
 
     @SerializedName("game_indices")
-    val game_indices: List<GameIndice>,
+    val game_indices: List<GameIndiceModel>,
 
     @SerializedName("height")
     val height: Int,
 
     @SerializedName("held_items")
-    val held_items: List<HeldItem>,
+    val held_items: List<HeldItemModel>,
 
     @SerializedName("id")
     val id: Int,
@@ -31,7 +31,7 @@ data class PokemonResponse(
     val location_area_encounters: String,
 
     @SerializedName("moves")
-    val moves: List<Move>,
+    val moves: List<MoveModel>,
 
     @SerializedName("name")
     val name: String,
@@ -43,16 +43,16 @@ data class PokemonResponse(
     val past_types: List<Any>,
 
     @SerializedName("species")
-    val species: Species,
+    val species: SpeciesModel,
 
     @SerializedName("sprites")
-    val sprites: Sprites,
+    val sprites: SpritesModel,
 
     @SerializedName("stats")
-    val stats: List<Stat>,
+    val stats: List<StatModel>,
 
     @SerializedName("types")
-    val types: List<Type>,
+    val types: List<TypeModel>,
 
     @SerializedName("weight")
     val weight: Int

@@ -1,7 +1,7 @@
 package com.example.data_remote.model.pokemon
 
 data class BlackWhite(
-    val animated: Animated,
+    val animatedModel: AnimatedModel,
     val back_default: String,
     val back_female: Any,
     val back_shiny: String,

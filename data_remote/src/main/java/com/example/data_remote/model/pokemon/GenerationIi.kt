@@ -4,9 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class GenerationIi(
     @SerializedName("crystal")
-    val crystal: Crystal,
+    val crystal: CrystalModel,
     @SerializedName("gold")
-    val gold: Gold,
+    val gold: GoldModel,
     @SerializedName("silver")
-    val silver: Silver
+    val silver: SilverModel
 )

@@ -20,7 +20,7 @@ data class Sprites(
     @SerializedName("front_shiny_female")
     val front_shiny_female: Any,
     @SerializedName("other")
-    val other: Other,
+    val other: OtherModel,
     @SerializedName("versions")
-    val versions: Versions
+    val versions: VersionsModel
 )

@@ -6,5 +6,5 @@ data class Type(
     @SerializedName("slot")
     val slot: Int,
     @SerializedName("type")
-    val type: TypeX
+    val type: TypeXModel
 )

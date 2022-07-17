@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class HeldItem(
     @SerializedName("item")
-    val item: Item,
+    val item: ItemModel,
     @SerializedName("version_details")
-    val version_details: List<VersionDetail>
+    val version_details: List<VersionDetailModel>
 )
