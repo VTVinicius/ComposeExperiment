@@ -1,5 +1,6 @@
 package com.example.feature_pokedex.common.navigation
 
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 
 interface PokedexNavigation {
@@ -8,6 +9,6 @@ interface PokedexNavigation {
 
     fun goBackToHomePokedex(navController: NavController)
 
-    fun goToLayout2Pokedex(navController: NavController)
+    fun goToPokemonDetails(navController: NavController, dominantColor: Color ,pokemonName: String)
 
 }

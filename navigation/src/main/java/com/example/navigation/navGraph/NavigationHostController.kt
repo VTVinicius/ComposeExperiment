@@ -26,7 +26,7 @@ fun NavigationHostController() {
 
         //Pokedex Graph
         composable("pokedexHomeScreen") { PokedexHomeLayout(PokedexNavigationImpl(), navController) }
-        composable("layout2") { PokedexLayout2(PokedexNavigationImpl(), navController) }
+        composable("pokemonDetails") { PokedexLayout2(PokedexNavigationImpl(), navController) }
 
         //Profile Grahp
         composable("profileHomeScreen") { ProfileLayout(ProfileNavigationImpl(), navController) }

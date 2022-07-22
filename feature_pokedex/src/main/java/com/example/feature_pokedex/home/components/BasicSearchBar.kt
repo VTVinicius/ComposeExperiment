@@ -2,6 +2,7 @@ package com.example.feature_pokedex.home.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
@@ -49,9 +50,13 @@ fun BasicSearchBar(
                     isHintDisplayed = it.isFocused != true
                 }
         )
-if(isHintDisplayed){
-    NormalText(text = hint, textColor = com.example.uikit.R.color.lightGrey)
-}
+        if (isHintDisplayed) {
+            Row(modifier = Modifier.fillMaxWidth()
+                .padding(horizontal = 20.dp, vertical = 12.dp)) {
+                NormalText(text = hint, textColor = com.example.uikit.R.color.lightGrey)
+            }
+
+        }
     }
 
 

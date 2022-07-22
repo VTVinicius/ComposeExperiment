@@ -12,3 +12,5 @@ object SearchPokedexMapper : DataRemoteMapper<PokedexListResponse, PokedexListMo
         results = data.results
     )
 }
+
+

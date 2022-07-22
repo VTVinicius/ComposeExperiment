@@ -22,10 +22,12 @@ ext {
             [configuration: "implementation", dependency: "$constraintLayout"],
             [configuration: "implementation", dependency: "$material"],
             [configuration: "implementation", dependency: "$glide"],
+            [configuration: "implementation", dependency: "$coil"],
             [configuration: "annotationProcessor", dependency: "$glideAnnotation"],
             [configuration: "implementation", dependency: "$flexbox"],
             [configuration: "implementation", dependency: "$gson"],
-            [configuration: "implementation", dependency: "$swiperefreshlayout"]
+            [configuration: "implementation", dependency: "$swiperefreshlayout"],
+            [configuration: "implementation", dependency: "$palette"]
     ]
 
     intentDependencies = appDependencies + [
@@ -56,7 +58,8 @@ ext {
             [configuration: "implementation", dependency: "$viewModel"],
             [configuration: "implementation", dependency: "$viewModelRuntime"],
             [configuration: "implementation", dependency: "$lifecycleXt"],
-            [configuration: "implementation", dependency: "$liveData"]
+            [configuration: "implementation", dependency: "$liveData"],
+            [configuration: "implementation", dependency: "$palette"]
     ]
 
     domainDependencies = commonsDependencies + testDomainDependencies + [

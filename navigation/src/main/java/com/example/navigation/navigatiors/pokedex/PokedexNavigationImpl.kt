@@ -1,5 +1,6 @@
 package com.example.navigation.navigatiors.pokedex
 
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import com.example.feature_pokedex.common.navigation.PokedexNavigation
 
@@ -16,8 +17,8 @@ class PokedexNavigationImpl(): PokedexNavigation {
             popUpTo("pokedexHomeScreen") { inclusive = true }
         }
     }
-    override fun goToLayout2Pokedex(navController: NavController) {
-        navController.navigate("layout2")
+    override fun goToPokemonDetails(navController: NavController, dominantColor: Color ,pokemonName: String) {
+        navController.navigate("pokemonDetails/${dominantColor}/${pokemonName}")
     }
 
 }

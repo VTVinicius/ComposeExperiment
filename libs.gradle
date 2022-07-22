@@ -49,6 +49,9 @@ ext {
     glide = "com.github.bumptech.glide:glide:$glideVersion"
     glideAnnotation = "com.github.bumptech.glide:compiler:$glideVersion"
 
+    //Coil
+    coil = "io.coil-kt:coil-compose:$coilVersion"
+
     //material
     material = "com.google.android.material:material:$materialVersion"
 
@@ -66,5 +69,9 @@ ext {
     composeRuntime = "androidx.compose.runtime:runtime:1.1.0"
     composeNavigation = "androidx.navigation:navigation-compose:$navComposeVersion"
 
+    //Palette
+    palette = "com.android.support:palette-v7:$paletteVersion"
+
 }
+
 

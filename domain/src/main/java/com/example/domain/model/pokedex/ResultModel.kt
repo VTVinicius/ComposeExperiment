@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ResultModel(
     @SerializedName("name")
-    val name: String? = "",
+    val name: String = "",
     @SerializedName("name")
-    val url: String? = ""
+    val url: String = ""
 )
