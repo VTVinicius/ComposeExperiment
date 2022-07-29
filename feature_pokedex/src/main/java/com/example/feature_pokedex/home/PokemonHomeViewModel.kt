@@ -34,6 +34,8 @@ class PokemonHomeViewModel : ViewModel(), KoinComponent {
     var pokemonList = mutableStateOf(listOf<ResultModel>())
 
 
+
+
     fun calculateDominantColor(drawable: Drawable, onFinish: (Color) -> Unit) {
         val bmp = (drawable as BitmapDrawable).bitmap.copy(Bitmap.Config.ARGB_8888, true)
 

@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
@@ -34,7 +35,7 @@ import uikit.compose.NormalBoldText
 
 
 @Composable
-fun PokedexHomeLayout(listener: PokedexNavigation?, navController: NavController) {
+fun PokedexHomeLayout(listener: PokedexNavigation, navController: NavController) {
 
     val viewmodel = getViewModel<PokemonHomeViewModel>()
     var entries: List<ResultModel> by remember {
@@ -76,13 +77,7 @@ LaunchedEffect(LocalContext.current){
 
             VerticalSpacer(height = 24)
 
-
-            PokedexRow(
-                listener = listener!!,
-                navController = navController,
-                entries = entries,
-                rowIndex = 1
-            )
+            PokemonList(navController = navController, listener = listener)
         }
 
 
@@ -91,6 +86,33 @@ LaunchedEffect(LocalContext.current){
 
 
 @Composable
+fun PokemonList(
+    navController: NavController,
+    listener: PokedexNavigation
+) {
+    val viewmodel = getViewModel<PokemonHomeViewModel>()
+    var entries: List<ResultModel> by remember {
+        mutableStateOf(emptyList<ResultModel>())
+    }
+
+    val response by viewmodel.getAllPokemonsViewState.collectAsState(initial = null)
+    val error by viewmodel.errorMessage.collectAsState(initial = null)
+
+    entries = response?.results ?: emptyList()
+
+    LazyColumn(contentPadding = PaddingValues(16.dp)) {
+        val itemCount = if (entries.size % 2 == 0) {
+            entries.size / 2
+        } else {
+            entries.size / 2 + 1
+        }
+        items(itemCount) {
+            PokedexRow(rowIndex = it, entries = entries, navController = navController, listener = listener)
+        }
+    }
+}
+
+    @Composable
 fun PokedexEntry(
     entry: ResultModel,
     modifier: Modifier = Modifier,
