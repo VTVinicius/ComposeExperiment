@@ -41,8 +41,8 @@ object WebServiceFactory {
         wasDebugVersion: Boolean,
     ): OkHttpClient =
         OkHttpClient.Builder()
-            .dispatcher(dispatcher())
             .httpLoggingInterceptor(wasDebugVersion)
+            .dispatcher(dispatcher())
             .connectTimeout(TIMEOUT_DURATION_SECONDS, TimeUnit.SECONDS)
             .readTimeout(TIMEOUT_DURATION_SECONDS, TimeUnit.SECONDS)
             .writeTimeout(TIMEOUT_DURATION_SECONDS, TimeUnit.SECONDS)
@@ -55,7 +55,11 @@ object WebServiceFactory {
                     .setLevel(HttpLoggingInterceptor.Level.BODY)
                 addInterceptor(interceptor)
             }
-            else -> this
+            else -> {
+                val interceptor = HttpLoggingInterceptor()
+                    .setLevel(HttpLoggingInterceptor.Level.BODY)
+                addInterceptor(interceptor)
+            }
         }
 
     fun defaultBuilder(

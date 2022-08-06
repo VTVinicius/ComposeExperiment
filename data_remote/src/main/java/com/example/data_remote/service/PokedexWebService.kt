@@ -28,7 +28,7 @@ interface PokedexWebService {
 
 object PokemonConstants {
     const val POKEMON_NAME = "pokemon"
-    const val POKEDEX_POKEMONS = "$POKEDEX_BASE_URL/pokemon"
+    const val POKEDEX_POKEMONS = "${POKEDEX_BASE_URL}pokemon"
     const val SPECIFIC_POKEON = "$POKEDEX_POKEMONS/{$POKEMON_NAME}"
 
 }

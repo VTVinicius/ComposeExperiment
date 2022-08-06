@@ -25,11 +25,13 @@ import androidx.navigation.NavController
 import base_feature.utils.extensions.compose.HorizontalSpacer
 import base_feature.utils.extensions.compose.VerticalSpacer
 import coil.compose.AsyncImage
+import com.example.domain.model.pokedex.PokedexListEntry
 import com.example.domain.model.pokedex.ResultModel
 import com.example.feature_pokedex.R
 import com.example.feature_pokedex.common.navigation.PokedexNavigation
 import com.example.feature_pokedex.home.components.BasicSearchBar
 import kotlinx.coroutines.launch
+import org.koin.androidx.compose.get
 import org.koin.androidx.compose.getViewModel
 import uikit.compose.NormalBoldText
 
@@ -38,23 +40,23 @@ import uikit.compose.NormalBoldText
 fun PokedexHomeLayout(listener: PokedexNavigation, navController: NavController) {
 
     val viewmodel = getViewModel<PokemonHomeViewModel>()
-    var entries: List<ResultModel> by remember {
-        mutableStateOf(emptyList<ResultModel>())
+    var entries: List<PokedexListEntry> by remember {
+        mutableStateOf(emptyList<PokedexListEntry>())
     }
 
     val coroutineScope = rememberCoroutineScope()
 
-LaunchedEffect(LocalContext.current){
-    coroutineScope.launch {
-        viewmodel.getAllPokemons()
+    LaunchedEffect(LocalContext.current) {
+        coroutineScope.launch {
+            viewmodel.getAllPokemons()
+        }
     }
-}
 
     val response by viewmodel.getAllPokemonsViewState.collectAsState(initial = null)
     val error by viewmodel.errorMessage.collectAsState(initial = null)
 
 
-    entries = response?.results ?: emptyList()
+
 
     Surface(
         color = colorResource(id = R.color.lightBlue),
@@ -77,7 +79,7 @@ LaunchedEffect(LocalContext.current){
 
             VerticalSpacer(height = 24)
 
-            PokemonList(navController = navController, listener = listener)
+            PokemonList(navController = navController, listener = listener, viewmodel = viewmodel)
         }
 
 
@@ -88,9 +90,9 @@ LaunchedEffect(LocalContext.current){
 @Composable
 fun PokemonList(
     navController: NavController,
-    listener: PokedexNavigation
+    listener: PokedexNavigation,
+    viewmodel: PokemonHomeViewModel
 ) {
-    val viewmodel = getViewModel<PokemonHomeViewModel>()
     var entries: List<ResultModel> by remember {
         mutableStateOf(emptyList<ResultModel>())
     }
@@ -107,12 +109,17 @@ fun PokemonList(
             entries.size / 2 + 1
         }
         items(itemCount) {
-            PokedexRow(rowIndex = it, entries = entries, navController = navController, listener = listener)
+            PokedexRow(
+                rowIndex = it,
+                entries = entries,
+                navController = navController,
+                listener = listener
+            )
         }
     }
 }
 
-    @Composable
+@Composable
 fun PokedexEntry(
     entry: ResultModel,
     modifier: Modifier = Modifier,
