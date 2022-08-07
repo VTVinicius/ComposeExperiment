@@ -2,6 +2,7 @@ package uikit.compose
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -43,13 +44,29 @@ fun NormalText(text: String, textColor: Int = R.color.black) {
 }
 
 @Composable
-fun NormalBoldText(text: String, textColor: Int = R.color.black) {
+fun NormalBoldText(text: String, textColor: Int = R.color.black, modifier: Modifier = Modifier) {
     Text(
+        modifier = modifier,
         text = text,
         style = TextStyle(
             fontFamily = typography.normalBold.fontFamily,
             color = colorResource(id = textColor)
         )
+    )
+}
+
+@Composable
+fun TitleBoldText(text: String, textColor: Int = R.color.black, modifier: Modifier = Modifier) {
+    Text(
+        modifier = modifier,
+        text = text,
+        style = TextStyle(
+            fontFamily = typography.title.fontFamily,
+            color = colorResource(id = textColor)
+        ),
+        fontSize = typography.title.fontSize,
+        fontWeight = typography.title.fontWeight
+
     )
 }
 

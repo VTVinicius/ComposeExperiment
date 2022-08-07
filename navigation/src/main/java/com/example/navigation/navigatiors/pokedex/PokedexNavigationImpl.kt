@@ -18,7 +18,7 @@ class PokedexNavigationImpl(): PokedexNavigation {
         }
     }
     override fun goToPokemonDetails(navController: NavController, dominantColor: Color ,pokemonName: String) {
-        navController.navigate("pokemonDetails/${dominantColor}/${pokemonName}")
+        navController.navigate("pokemonDetails")
     }
 
 }

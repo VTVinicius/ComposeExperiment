@@ -6,15 +6,14 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment.Companion.BottomCenter
 import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.platform.LocalContext
@@ -25,15 +24,16 @@ import androidx.navigation.NavController
 import base_feature.utils.extensions.compose.HorizontalSpacer
 import base_feature.utils.extensions.compose.VerticalSpacer
 import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.example.domain.model.pokedex.PokedexListEntry
 import com.example.domain.model.pokedex.ResultModel
+import com.example.domain.utils.capitalized
 import com.example.feature_pokedex.R
 import com.example.feature_pokedex.common.navigation.PokedexNavigation
 import com.example.feature_pokedex.home.components.BasicSearchBar
 import kotlinx.coroutines.launch
-import org.koin.androidx.compose.get
 import org.koin.androidx.compose.getViewModel
-import uikit.compose.NormalBoldText
+import uikit.compose.TitleBoldText
 
 
 @Composable
@@ -113,7 +113,8 @@ fun PokemonList(
                 rowIndex = it,
                 entries = entries,
                 navController = navController,
-                listener = listener
+                listener = listener,
+                viewmodel = viewmodel
             )
         }
     }
@@ -124,8 +125,11 @@ fun PokedexEntry(
     entry: ResultModel,
     modifier: Modifier = Modifier,
     navController: NavController,
-    listener: PokedexNavigation
+    listener: PokedexNavigation,
 ) {
+
+
+    val viewmodel = getViewModel<PokemonHomeViewModel>()
 
     val defaultDominantColor = MaterialTheme.colors.surface
     var dominantColor by remember {
@@ -152,23 +156,43 @@ fun PokedexEntry(
     {
 
         Column {
+
+            val number = if (entry.url.endsWith("/")) {
+                entry.url.dropLast(1).takeLastWhile { it.isDigit() }
+            } else {
+                entry.url.takeLastWhile { it.isDigit() }
+            }
+            val url =
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${number}.png"
+
+
+
             AsyncImage(
-                model = entry.url,
-                contentDescription = "",
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(url)
+                    .crossfade(true)
+                    .target {
+                        viewmodel.calculateDominantColor(it) { color ->
+                            dominantColor = color
+                        }
+                    }
+                    .build(),
+                contentDescription = entry.name,
                 modifier = Modifier
                     .size(120.dp)
                     .align(CenterHorizontally)
             )
-            CircularProgressIndicator(
-                color = MaterialTheme.colors.primary,
-                modifier = Modifier.scale(0.5f)
+
+            TitleBoldText(
+                text = entry.name.capitalized(),
+                modifier = Modifier
+                    .padding(bottom = 8.dp)
             )
+
+
         }
 
-        NormalBoldText(text = entry.name)
-
     }
-
 }
 
 
@@ -177,7 +201,8 @@ fun PokedexRow(
     rowIndex: Int,
     entries: List<ResultModel>,
     navController: NavController,
-    listener: PokedexNavigation
+    listener: PokedexNavigation,
+    viewmodel: PokemonHomeViewModel
 ) {
     if (!entries.isEmpty()) {
         Column {
@@ -186,7 +211,7 @@ fun PokedexRow(
                     entry = entries[rowIndex * 2],
                     navController = navController,
                     listener = listener,
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f),
                 )
                 HorizontalSpacer(height = 16)
                 if (entries.size >= rowIndex * 2 + 2) {
@@ -194,7 +219,7 @@ fun PokedexRow(
                         entry = entries[rowIndex * 2 + 1],
                         navController = navController,
                         listener = listener,
-                        modifier = Modifier.weight(1f)
+                        modifier = Modifier.weight(1f),
                     )
                 } else {
                     Spacer(Modifier.weight(1f))

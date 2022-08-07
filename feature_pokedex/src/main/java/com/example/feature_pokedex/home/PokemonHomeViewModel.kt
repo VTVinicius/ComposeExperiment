@@ -7,11 +7,13 @@ import android.graphics.drawable.Drawable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
+import androidx.paging.PagingData
 import androidx.palette.graphics.Palette
-import base_feature.utils.extensions.*
+import base_feature.utils.extensions.useCase
 import com.example.domain.model.pokedex.PokedexListModel
 import com.example.domain.model.pokedex.ResultModel
 import com.example.domain.usecase.pokedex.pokedex_home.GetAllPokemonsUseCase
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import org.koin.core.component.KoinComponent
@@ -46,6 +48,22 @@ class PokemonHomeViewModel : ViewModel(), KoinComponent {
         }
     }
 
+    private var pokedexData: Flow<PagingData<PokedexListModel>>? = null
+
+//    fun getAllPokemons(): Flow<PagingData<PokedexListModel>> {
+//        val newResult = Pager(
+//            PagingConfig(pageSize = NETWORK_PAGE_SIZE),
+//            pagingSourceFactory = {
+//                PokedexPagingSource(
+//                    getAllPokemonsUseCase
+//                )
+//            }).flow.cachedIn(
+//            viewModelScope
+//        )
+//
+//        addressData= newResult
+//        return newResult
+//    }
 
     fun getAllPokemons() {
         getAllPokemonsUseCase(
@@ -53,6 +71,7 @@ class PokemonHomeViewModel : ViewModel(), KoinComponent {
             onSuccess = {
                 it.let {
                     _getAllPokemonsViewState.value = it
+                    currentPage++
                 }
             },
             onError = {

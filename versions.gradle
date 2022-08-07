@@ -57,4 +57,7 @@ ext {
     //Palette
     paletteVersion = "28.0.0"
 
+    //Paging
+    pagingVersion = '3.0.0'
+
 }
