@@ -1,5 +1,6 @@
 package com.example.feature_pokedex.home
 
+import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -26,6 +27,7 @@ import base_feature.utils.extensions.compose.HorizontalSpacer
 import base_feature.utils.extensions.compose.OnBottomReached
 import base_feature.utils.extensions.compose.VerticalSpacer
 import coil.compose.AsyncImage
+import coil.compose.rememberImagePainter
 import coil.request.ImageRequest
 import com.example.domain.model.pokedex.PokedexListEntry
 import com.example.domain.model.pokedex.ResultModel
@@ -144,6 +146,7 @@ fun PokedexEntry(
         mutableStateOf(defaultDominantColor)
     }
 
+
     Box(contentAlignment = Center,
         modifier = modifier
             .shadow(5.dp, RoundedCornerShape(10.dp))
@@ -158,7 +161,7 @@ fun PokedexEntry(
                 )
             )
             .clickable {
-                listener.goToPokemonDetails(navController, dominantColor, entry.name)
+                listener.goToPokemonDetails(navController, dominantColor.value.toInt(), entry.name)
             }
     )
     {
@@ -173,17 +176,15 @@ fun PokedexEntry(
             val url =
                 "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${number}.png"
 
+            viewmodel.fetchColors(url, context = LocalContext.current) {
+                dominantColor = it
+            }
 
 
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(url)
                     .crossfade(true)
-//                    .target {
-//                        viewmodel.calculateDominantColor(it) { color ->
-//                            dominantColor = color
-//                        }
-//                    }
                     .build(),
                 contentDescription = entry.name,
                 modifier = Modifier
