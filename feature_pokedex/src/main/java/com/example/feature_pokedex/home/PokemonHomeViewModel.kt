@@ -7,13 +7,11 @@ import android.graphics.drawable.Drawable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
-import androidx.paging.PagingData
 import androidx.palette.graphics.Palette
 import base_feature.utils.extensions.useCase
 import com.example.domain.model.pokedex.PokedexListModel
 import com.example.domain.model.pokedex.ResultModel
 import com.example.domain.usecase.pokedex.pokedex_home.GetAllPokemonsUseCase
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import org.koin.core.component.KoinComponent
@@ -50,8 +48,7 @@ class PokemonHomeViewModel : ViewModel(), KoinComponent {
     }
 
     fun loadMorePokemons(){
-        currentPage++
-        limit + 20
+        limit += 20
         getAllPokemons()
     }
 
