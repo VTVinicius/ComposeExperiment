@@ -32,6 +32,7 @@ class PokemonHomeViewModel : ViewModel(), KoinComponent {
     val errorMessage: StateFlow<String?> = _errorMessage
 
     private var currentPage = 0
+    private var limit = 20
 
     var pokemonList = mutableStateOf(listOf<ResultModel>())
 
@@ -48,30 +49,18 @@ class PokemonHomeViewModel : ViewModel(), KoinComponent {
         }
     }
 
-    private var pokedexData: Flow<PagingData<PokedexListModel>>? = null
-
-//    fun getAllPokemons(): Flow<PagingData<PokedexListModel>> {
-//        val newResult = Pager(
-//            PagingConfig(pageSize = NETWORK_PAGE_SIZE),
-//            pagingSourceFactory = {
-//                PokedexPagingSource(
-//                    getAllPokemonsUseCase
-//                )
-//            }).flow.cachedIn(
-//            viewModelScope
-//        )
-//
-//        addressData= newResult
-//        return newResult
-//    }
+    fun loadMorePokemons(){
+        currentPage++
+        limit + 20
+        getAllPokemons()
+    }
 
     fun getAllPokemons() {
         getAllPokemonsUseCase(
-            params = GetAllPokemonsUseCase.Params(20, currentPage),
+            params = GetAllPokemonsUseCase.Params(limit, currentPage),
             onSuccess = {
                 it.let {
                     _getAllPokemonsViewState.value = it
-                    currentPage++
                 }
             },
             onError = {

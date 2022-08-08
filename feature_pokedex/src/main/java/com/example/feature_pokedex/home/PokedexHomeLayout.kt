@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -22,6 +23,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import base_feature.utils.extensions.compose.HorizontalSpacer
+import base_feature.utils.extensions.compose.OnBottomReached
 import base_feature.utils.extensions.compose.VerticalSpacer
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
@@ -102,7 +104,13 @@ fun PokemonList(
 
     entries = response?.results ?: emptyList()
 
-    LazyColumn(contentPadding = PaddingValues(16.dp)) {
+    val lazyState = rememberLazyListState()
+
+    lazyState.OnBottomReached(offset = 2) {
+        viewmodel.loadMorePokemons()
+    }
+
+    LazyColumn(state = lazyState, contentPadding = PaddingValues(16.dp)) {
         val itemCount = if (entries.size % 2 == 0) {
             entries.size / 2
         } else {
@@ -171,11 +179,11 @@ fun PokedexEntry(
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(url)
                     .crossfade(true)
-                    .target {
-                        viewmodel.calculateDominantColor(it) { color ->
-                            dominantColor = color
-                        }
-                    }
+//                    .target {
+//                        viewmodel.calculateDominantColor(it) { color ->
+//                            dominantColor = color
+//                        }
+//                    }
                     .build(),
                 contentDescription = entry.name,
                 modifier = Modifier

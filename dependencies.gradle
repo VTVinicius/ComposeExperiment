@@ -24,7 +24,6 @@ ext {
             [configuration: "implementation", dependency: "$glide"],
             [configuration: "implementation", dependency: "$paging"],
             [configuration: "implementation", dependency: "$coil"],
-            [configuration: "implementation", dependency: "$coil2"],
             [configuration: "annotationProcessor", dependency: "$glideAnnotation"],
             [configuration: "implementation", dependency: "$flexbox"],
             [configuration: "implementation", dependency: "$gson"],
