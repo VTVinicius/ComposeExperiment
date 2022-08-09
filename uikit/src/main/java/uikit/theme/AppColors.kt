@@ -15,6 +15,9 @@ class AppColors(
     success: Color,
     isLight: Boolean,
 ) {
+
+
+
     var primary by mutableStateOf(primary)
     var textSecondary by mutableStateOf(textSecondary)
     var textPrimary by mutableStateOf(textPrimary)
@@ -75,3 +78,29 @@ fun lightColors(
 )
 
 val LocalColors = staticCompositionLocalOf { lightColors() }
+
+val hpColor = Color(0xFFF5FF00)
+val atkColor = Color(1f, 0f, 0f, 0.66f)
+val defColor = Color(0f, 0f, 1f, 0.44f)
+val spAtkColor = Color(0.671f, 0f, 1f, 0.57f)
+val spDefColor = Color(1f, 0f, 0.8f, 0.7f)
+val spdColor = Color(0f, 1f, 0.063f, 0.55f)
+
+val typeNormal = Color(0xFFA8A77A)
+val typeFire = Color(0xFFEE8130)
+val typeWater = Color(0xFF6390F0)
+val typeElectric = Color(0xFFF7D02C)
+val typeGrass = Color(0xFF7AC74C)
+val typeIce = Color(0xFF96D9D6)
+val typeFighting = Color(0xFFC22E28)
+val typePoison = Color(0xFFA33EA1)
+val typeGround = Color(0xFFE2BF65)
+val typeFlying = Color(0xFFA98FF3)
+val typePsychic = Color(0xFFF95587)
+val typeBug = Color(0xFFA6B91A)
+val typeRock = Color(0xFFB6A136)
+val typeGhost = Color(0xFF735797)
+val typeDragon = Color(0xFF6F35FC)
+val typeDark = Color(0xFF705746)
+val typeSteel = Color(0xFFB7B7CE)
+val typeFairy = Color(0xFFD685AD)

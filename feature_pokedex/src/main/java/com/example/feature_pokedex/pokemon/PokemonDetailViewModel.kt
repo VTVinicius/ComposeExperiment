@@ -1,46 +1,37 @@
-package com.example.feature_pokedex.home
-
+package com.example.feature_pokedex.pokemon
 
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.palette.graphics.Palette
 import base_feature.utils.extensions.useCase
-import coil.Coil
 import coil.imageLoader
 import coil.request.ImageRequest
 import coil.request.SuccessResult
 import com.example.domain.model.pokedex.PokedexListModel
-import com.example.domain.model.pokedex.ResultModel
+import com.example.domain.model.pokedex.PokemonModel
 import com.example.domain.usecase.pokedex.pokedex_home.GetAllPokemonsUseCase
+import com.example.domain.usecase.pokedex.pokedex_pokemon.GetPokemonUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
 
-class PokemonHomeViewModel : ViewModel(), KoinComponent {
+class PokemonDetailViewModel  : ViewModel(), KoinComponent {
 
-    private val getAllPokemonsUseCase: GetAllPokemonsUseCase by useCase()
+    private val getPokemonUseCase: GetPokemonUseCase by useCase()
 
-    private val _getAllPokemonsViewState = MutableStateFlow<PokedexListModel?>(null)
+    private val _getPokemonViewState = MutableStateFlow<PokemonModel?>(null)
 
-    val getAllPokemonsViewState: StateFlow<PokedexListModel?> = _getAllPokemonsViewState
-
+    val getPokemonViewState: StateFlow<PokemonModel?> = _getPokemonViewState
 
     private val _errorMessage = MutableStateFlow<String?>(null)
 
     val errorMessage: StateFlow<String?> = _errorMessage
-
-    private var currentPage = 0
-    private var limit = 20
-
-    var pokemonList = mutableStateOf(listOf<ResultModel>())
-
 
 
     fun calcDominantColor(drawable: Drawable, onFinish: (Color) -> Unit) {
@@ -73,26 +64,18 @@ class PokemonHomeViewModel : ViewModel(), KoinComponent {
         }
     }
 
-
-
-    fun loadMorePokemons(){
-        limit += 20
-        getAllPokemons()
-    }
-
-    fun getAllPokemons() {
-        getAllPokemonsUseCase(
-            params = GetAllPokemonsUseCase.Params(limit, currentPage),
+    fun getPokemon(name: String) {
+        getPokemonUseCase(
+            params = GetPokemonUseCase.Params(name),
             onSuccess = {
                 it.let {
-                    _getAllPokemonsViewState.value = it
+                    _getPokemonViewState.value = it
                 }
             },
             onError = {
-                    _errorMessage.value = it.message
+                _errorMessage.value = it.message
             }
         )
     }
-
 
 }

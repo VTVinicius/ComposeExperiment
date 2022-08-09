@@ -147,6 +147,21 @@ fun PokedexEntry(
     }
 
 
+    val number = if (entry.url.endsWith("/")) {
+        entry.url.dropLast(1).takeLastWhile { it.isDigit() }
+    } else {
+        entry.url.takeLastWhile { it.isDigit() }
+    }
+    val url =
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${number}.png"
+
+
+
+    viewmodel.fetchColors(url, context = LocalContext.current) {
+        dominantColor = it
+    }
+
+
     Box(contentAlignment = Center,
         modifier = modifier
             .shadow(5.dp, RoundedCornerShape(10.dp))
@@ -167,19 +182,6 @@ fun PokedexEntry(
     {
 
         Column {
-
-            val number = if (entry.url.endsWith("/")) {
-                entry.url.dropLast(1).takeLastWhile { it.isDigit() }
-            } else {
-                entry.url.takeLastWhile { it.isDigit() }
-            }
-            val url =
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${number}.png"
-
-            viewmodel.fetchColors(url, context = LocalContext.current) {
-                dominantColor = it
-            }
-
 
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
