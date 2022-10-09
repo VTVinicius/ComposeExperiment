@@ -47,6 +47,7 @@ class Mask(
         fun buildCpf() = Mask(MaskTypes.CPF.value)
         fun buildBirthday() = Mask(MaskTypes.DATE.value)
         fun buildPhone() = Mask(MaskTypes.PHONE.value)
+        fun buildCEP() = Mask(MaskTypes.CEP.value)
     }
 }
 
@@ -60,3 +61,5 @@ enum class MaskTypes(val value: String) {
 
     fun length() = value.length
 }
+
+fun String.unmask() = this.replace("[^\\d]".toRegex(), "")

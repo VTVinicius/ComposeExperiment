@@ -19,11 +19,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import base_feature.utils.extensions.compose.HorizontalSpacer
+import base_feature.utils.extensions.compose.LifecycleManager
 import base_feature.utils.extensions.compose.OnBottomReached
 import base_feature.utils.extensions.compose.VerticalSpacer
 import coil.compose.AsyncImage
@@ -61,7 +63,6 @@ fun PokedexHomeLayout(listener: PokedexNavigation, navController: NavController)
 
 
 
-
     Surface(
         color = colorResource(id = R.color.lightBlue),
         modifier = Modifier.fillMaxSize()
@@ -79,7 +80,15 @@ fun PokedexHomeLayout(listener: PokedexNavigation, navController: NavController)
             )
             VerticalSpacer(height = 24)
 
-            BasicSearchBar(modifier = Modifier.padding(24.dp), hint = "Pesquisar..")
+            BasicSearchBar(
+                modifier = Modifier.padding(24.dp),
+                hint = "Pesquisar..",
+                onIconClick = {
+                    listener.goToPokemonDetails(
+                        pokemonName = it,
+                        navController = navController
+                    )
+                })
 
             VerticalSpacer(height = 24)
 
@@ -176,7 +185,7 @@ fun PokedexEntry(
                 )
             )
             .clickable {
-                listener.goToPokemonDetails(navController, dominantColor.value.toInt(), entry.name)
+                listener.goToPokemonDetails(navController, entry.name)
             }
     )
     {

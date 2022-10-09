@@ -41,12 +41,10 @@ class PokemonHomeViewModel : ViewModel(), KoinComponent {
 
     var pokemonList = mutableStateOf(listOf<ResultModel>())
 
-
-
     fun calcDominantColor(drawable: Drawable, onFinish: (Color) -> Unit) {
         val bmp = (drawable as BitmapDrawable).bitmap.copy(Bitmap.Config.ARGB_8888, true)
 
-        Palette.from(bmp).generate{ palette ->
+        Palette.from(bmp).generate { palette ->
             palette?.dominantSwatch?.rgb?.let { colorValue ->
                 onFinish(Color(colorValue))
             }
@@ -74,8 +72,7 @@ class PokemonHomeViewModel : ViewModel(), KoinComponent {
     }
 
 
-
-    fun loadMorePokemons(){
+    fun loadMorePokemons() {
         limit += 20
         getAllPokemons()
     }
@@ -89,7 +86,7 @@ class PokemonHomeViewModel : ViewModel(), KoinComponent {
                 }
             },
             onError = {
-                    _errorMessage.value = it.message
+                _errorMessage.value = it.message
             }
         )
     }

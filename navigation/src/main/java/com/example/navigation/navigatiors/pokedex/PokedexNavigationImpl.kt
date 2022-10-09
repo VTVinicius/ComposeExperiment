@@ -17,8 +17,8 @@ class PokedexNavigationImpl(): PokedexNavigation {
             popUpTo("pokedexHomeScreen") { inclusive = true }
         }
     }
-    override fun goToPokemonDetails(navController: NavController, dominantColor: Int ,pokemonName: String ){
-        navController.navigate("pokemonDetails/${dominantColor}/$pokemonName")
+    override fun goToPokemonDetails(navController: NavController,pokemonName: String ){
+        navController.navigate("pokemonDetails/$pokemonName")
     }
 
 }

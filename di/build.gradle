@@ -13,6 +13,7 @@ dependencies {
     implementation project(':data_local')
     implementation project(':feature_pokedex')
     implementation project(':feature_profile')
+    implementation project(':feature_calculators')
 
     diDependencies.each { add(it.configuration, it.dependency, it.option) }
 

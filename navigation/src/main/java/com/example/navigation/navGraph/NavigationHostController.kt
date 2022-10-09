@@ -38,22 +38,16 @@ fun NavigationHostController() {
                 navController
             )
         }
-        composable("pokemonDetails/{dominantColor}/{pokemonName}",
+        composable("pokemonDetails/{pokemonName}",
             arguments = listOf(
-                navArgument("dominantColor") { type = NavType.IntType },
                 navArgument("pokemonName") { type = NavType.StringType },
             )) {
             val arguments = requireNotNull(it.arguments)
 
-            val dominantColor = remember {
-                val color = it.arguments?.getInt("dominantColor")
-                color?.let { Color(it) } ?: Color.White
-            }
                 arguments.getString("pokemonName")?.let { it1 ->
                         PokemonDetail(
                             listener = PokedexNavigationImpl(),
                             navController = navController,
-                            dominantColor = dominantColor,
                             pokemonName = it1,
                         )
                     }

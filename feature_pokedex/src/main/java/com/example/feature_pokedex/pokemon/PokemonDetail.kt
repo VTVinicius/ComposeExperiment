@@ -47,7 +47,6 @@ import kotlin.math.round
 fun PokemonDetail(
     listener: PokedexNavigation?,
     navController: NavController,
-    dominantColor: Color,
     pokemonName: String,
 ) {
 

@@ -9,6 +9,6 @@ interface PokedexNavigation {
 
     fun goBackToHomePokedex(navController: NavController)
 
-    fun goToPokemonDetails(navController: NavController, dominantColor: Int ,pokemonName: String)
+    fun goToPokemonDetails(navController: NavController ,pokemonName: String)
 
 }

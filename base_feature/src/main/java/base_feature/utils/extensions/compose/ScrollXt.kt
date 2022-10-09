@@ -1,7 +1,7 @@
 package base_feature.utils.extensions.compose
 
 import androidx.compose.foundation.lazy.LazyListState
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 
 
 //@Composable
@@ -28,8 +28,8 @@ import androidx.compose.runtime.*
 fun LazyListState.OnBottomReached(
     offset: Int = 1,
     loadMore: () -> Unit,
-){
-    if(layoutInfo.visibleItemsInfo.lastOrNull()?.index == layoutInfo.totalItemsCount - offset){
+) {
+    if (layoutInfo.visibleItemsInfo.lastOrNull()?.index == layoutInfo.totalItemsCount - offset) {
         loadMore()
     }
 }
