@@ -1,4 +1,3 @@
-
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -13,20 +12,25 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.uikit.R
 import uikit.compose.SmallBoldText
 import uikit.compose.SmallText
+import uikit.compose.masks.unmask
 import uikit.compose.utils.HorizontalSpacer
 import uikit.compose.utils.RegexEnum
 import uikit.compose.utils.VerticalSpacer
 import uikit.theme.ComposeTheme
 import uikit.theme.cinza
 import uikit.theme.red
+import java.text.NumberFormat
+import java.util.*
 
 
 @Composable
@@ -38,10 +42,15 @@ fun BaseInputText(
     state: InputTextState = InputTextState.NORMAL,
     onSearch: (String) -> Unit = {},
     onIconClick: () -> Unit = {},
+    isMoney: Boolean = false,
     inputType: RegexEnum? = null,
     styleType: InputTextStyleType = InputTextStyleType.NOTHING,
     keyboardOptions: KeyboardOptions = KeyboardOptions(),
 ) {
+
+    val LOCALE_PT_BR = Locale("pt", "BR")
+    val mFormatter: NumberFormat = NumberFormat.getCurrencyInstance(LOCALE_PT_BR)
+    var mIsUpdating: Boolean = false
 
     var text by remember {
         mutableStateOf("")
@@ -53,23 +62,51 @@ fun BaseInputText(
         mutableStateOf(true)
     }
 
+    val textFieldValue = remember {
+        mutableStateOf(
+            TextFieldValue(
+                text = text,
+                selection = TextRange(0)
+            )
+        )
+
+    }
+
     Column {
         Box(
             modifier = modifier
         ) {
             TextField(
-                value = text,
+                value = textFieldValue.value,
                 onValueChange = {
-                    if (it.length > (maxLength ?: 0)) {
-                        return@TextField
-                    } else if (it.matches(inputType?.value ?: RegexEnum.ALL.value)) {
-                        text = it
-                        onSearch(it)
-                        isFieldEmpty = it == ""
-                    } else if (it.length < text.length) {
-                        text = it
-                        isFieldEmpty = it == ""
+                    if (isMoney) {
+                        if (!mIsUpdating) {
+                            mIsUpdating = true
+                            val cleanString = it.text.unmask()
+                            val parsed = cleanString.toDouble()
+                            val formatted = mFormatter.format(parsed / 100)
+                            text = formatted
+                            mIsUpdating = false
+
+                            textFieldValue.value = TextFieldValue(
+                                text = text,
+                                selection = TextRange(text.length)
+                            )
+                            isFieldEmpty = it.text == ""
+                        }
+                    } else {
+                        if (it.text.length > (maxLength ?: 0)) {
+                            return@TextField
+                        } else if (it.text.matches(inputType?.value ?: RegexEnum.ALL.value)) {
+                            textFieldValue.value = it
+                            onSearch(it.text)
+                            isFieldEmpty = it.text == ""
+                        } else if (it.text.length < textFieldValue.value.text.length) {
+                            textFieldValue.value = it
+                            isFieldEmpty = it.text == ""
+                        }
                     }
+
                 },
                 visualTransformation =
                 if (mask != null && mask is PasswordVisualTransformation) {
@@ -145,7 +182,7 @@ fun BaseInputText(
         ) {
             if (styleType.errorMessage != "") {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_error_alert ),
+                    painter = painterResource(id = R.drawable.ic_error_alert),
                     tint = red,
                     modifier = Modifier.size(16.dp),
                     contentDescription = "Error Icon"
@@ -162,5 +199,4 @@ fun BaseInputText(
         }
     }
 }
-
 

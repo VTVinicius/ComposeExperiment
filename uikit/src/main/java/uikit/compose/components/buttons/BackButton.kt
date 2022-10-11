@@ -14,8 +14,8 @@ import com.example.uikit.R
 @Composable
 fun BackButton(
     onClick: () -> Unit,
-    backgroundColor : Int = R.color.lightBlue,
-    strokeColor: Int = R.color.darkBlue
+    backgroundColor : Int = R.color.lightGrey,
+    strokeColor: Int = R.color.black,
 ){
     OutlinedButton(
         colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = backgroundColor)),

@@ -4,6 +4,7 @@ import BasicInputText
 import CPFInputText
 import CepInputText
 import EmailInputText
+import InputTextState
 import NameInputText
 import OnlyLettersInputText
 import OnlyNumbersInputText
@@ -15,16 +16,16 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import base_feature.utils.extensions.compose.VerticalSpacer
 import com.example.feature_examples.navigation.ExamplesNavigation
 import uikit.compose.SubtitleText
-import uikit.compose.Title18Text
 import uikit.compose.Title20BoldText
+import uikit.compose.components.buttons.BackButton
+import com.example.uikit.R
+import uikit.compose.components.inputText.MoneyInputText
 import uikit.theme.background
-import uikit.theme.cinza
 
 
 @Composable
@@ -42,10 +43,25 @@ fun InputTextsView(
 
     ) {
 
-        Row(Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.Center) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .offset((-16).dp, (-16).dp),
+            horizontalArrangement = Arrangement.Start
+        ) {
+            BackButton(onClick = { navigation.goToHomeExample(navController) })
+        }
+
+        Row(
+            Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ) {
             Title20BoldText(text = "Campos de Texto")
         }
+
+        VerticalSpacer(height = 24)
+
+        MoneyInputText(onSearch = {})
 
         VerticalSpacer(height = 24)
 
@@ -120,6 +136,5 @@ fun InputTextsView(
         BasicInputText(maxLength = 100, onSearch = {}, state = InputTextState.GRAY)
 
     }
-
 
 }

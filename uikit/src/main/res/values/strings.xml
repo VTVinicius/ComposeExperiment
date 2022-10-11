@@ -5,4 +5,5 @@
     <string name="understood">Entendi</string>
     <string name="generic_error_title">Ops!</string>
     <string name="generic_error_description">Ocorreu um problema, por favor tente novamente mais tarde.</string>
+    <string name="default_currency_formatter" translatable="false">%1$s</string>
 </resources>

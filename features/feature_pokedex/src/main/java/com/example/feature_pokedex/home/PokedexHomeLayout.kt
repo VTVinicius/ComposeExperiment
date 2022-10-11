@@ -40,6 +40,7 @@ import com.example.feature_pokedex.home.components.BasicSearchBar
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.getViewModel
 import uikit.compose.TitleBoldText
+import uikit.compose.components.buttons.BackButton
 
 
 @Composable
@@ -67,6 +68,15 @@ fun PokedexHomeLayout(listener: PokedexNavigation, navController: NavController)
         color = colorResource(id = R.color.lightBlue),
         modifier = Modifier.fillMaxSize()
     ) {
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.Start
+        ) {
+            BackButton(onClick = { listener.goToHomeNavigation(navController) })
+        }
 
         Column() {
 
