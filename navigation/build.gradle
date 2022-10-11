@@ -6,12 +6,11 @@ apply plugin: "androidx.navigation.safeargs"
 apply from: "$rootProject.projectDir/android-common.gradle"
 
 dependencies {
-    api project(':feature_profile')
-    implementation project(path: ':base_feature')
-    implementation project(path: ':feature_profile')
-    implementation project(path: ':feature_pokedex')
-    implementation project(path: ':feature_calculators')
-    implementation project(path: ':feature_examples')
+    implementation project(path: ':features:base_feature')
+    implementation project(path: ':features:feature_pokedex')
+    implementation project(path: ':features:feature_calculators')
+    implementation project(path: ':features:feature_examples')
+    implementation project(path: ':features:feature_profile')
 
     intentDependencies.each { add(it.configuration, it.dependency) }
     compose.each { add(it.configuration, it.dependency, it.options) }

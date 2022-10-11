@@ -12,16 +12,17 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/base_feature" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/data_local" />
             <option value="$PROJECT_DIR$/data_remote" />
             <option value="$PROJECT_DIR$/di" />
             <option value="$PROJECT_DIR$/domain" />
-            <option value="$PROJECT_DIR$/feature_calculators" />
-            <option value="$PROJECT_DIR$/feature_examples" />
-            <option value="$PROJECT_DIR$/feature_pokedex" />
-            <option value="$PROJECT_DIR$/feature_profile" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/base_feature" />
+            <option value="$PROJECT_DIR$/features/feature_calculators" />
+            <option value="$PROJECT_DIR$/features/feature_examples" />
+            <option value="$PROJECT_DIR$/features/feature_pokedex" />
+            <option value="$PROJECT_DIR$/features/feature_profile" />
             <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/uikit" />
           </set>

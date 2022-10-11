@@ -21,10 +21,7 @@ apply from: "$rootProject.projectDir/android-common.gradle"
 dependencies {
 
     implementation project(':di')
-    implementation project(':base_feature')
-    implementation project(':feature_pokedex')
-    implementation project(':feature_profile')
-    implementation project(':feature_examples')
+    implementation project(':features:base_feature')
     implementation project(':navigation')
     implementation project(':uikit')
 

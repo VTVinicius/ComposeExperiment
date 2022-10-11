@@ -32,15 +32,16 @@ fun ButtonsScreen(
             .padding(16.dp)) {
 
 
+
+        BackButton(onClick = {navigation.goToHomeExample(navController = navController)})
+
+        VerticalSpacer(height = 16)
+
         OutlineButton(text = "OutlineButton", onClick = {  })
 
         VerticalSpacer(height = 16)
 
         PrimaryButton(text = "PrimaryButton", onClick = {  })
-
-        VerticalSpacer(height = 16)
-
-        BackButton(onClick = {})
 
         VerticalSpacer(height = 16)
 
@@ -52,11 +53,11 @@ fun ButtonsScreen(
 
         VerticalSpacer(height = 16)
 
-        OutlineButton(text = "OutlineButton - Icon Right", onClick = {  }, iconLeft = R.drawable.ic_right_arrow)
+        OutlineButton(text = "OutlineButton - Icon Right", onClick = {  }, iconRight = R.drawable.ic_right_arrow)
 
         VerticalSpacer(height = 16)
 
-        PrimaryButton(text = "PrimaryButton - Icon Right", onClick = {  }, iconLeft = R.drawable.ic_right_arrow)
+        PrimaryButton(text = "PrimaryButton - Icon Right", onClick = {  }, iconRight = R.drawable.ic_right_arrow)
     }
 
 }

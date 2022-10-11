@@ -6,15 +6,15 @@ apply from: "$rootProject.projectDir/android-common.gradle"
 dependencies {
 
     implementation project(':navigation')
-    implementation project(':base_feature')
+    implementation project(':features:base_feature')
     implementation project(':domain')
     implementation project(':data')
     implementation project(':data_remote')
     implementation project(':data_local')
-    implementation project(':feature_pokedex')
-    implementation project(':feature_profile')
-    implementation project(':feature_calculators')
-    implementation project(':feature_examples')
+    implementation project(':features:feature_pokedex')
+    implementation project(':features:feature_profile')
+    implementation project(':features:feature_calculators')
+    implementation project(':features:feature_examples')
 
 
     diDependencies.each { add(it.configuration, it.dependency, it.option) }
