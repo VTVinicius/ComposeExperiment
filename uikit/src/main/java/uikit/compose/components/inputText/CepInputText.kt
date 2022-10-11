@@ -17,7 +17,7 @@ import uikit.compose.utils.RegexEnum
 @Composable
 fun CepInputText(
     modifier: Modifier = Modifier,
-    state: InputTextState = InputTextState.NORMAL,
+    state: InputTextState = InputTextState.OUTLINE,
     onSearch: (String) -> Unit
 ) {
     val styleType: InputTextStyleType = remember { InputTextStyleType.CEP }

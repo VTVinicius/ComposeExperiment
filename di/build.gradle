@@ -14,6 +14,8 @@ dependencies {
     implementation project(':feature_pokedex')
     implementation project(':feature_profile')
     implementation project(':feature_calculators')
+    implementation project(':feature_examples')
+
 
     diDependencies.each { add(it.configuration, it.dependency, it.option) }
 

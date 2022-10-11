@@ -13,6 +13,9 @@ class HomeNavigationImpl() : HomeNavigation {
     override fun goToHomeNavigation(navController: NavController) {
         navController.navigate("homeNavigation")
     }
+    override fun goToExamplesNavigation(navController: NavController) {
+        navController.navigate("examplesNavigation")
+    }
 
     override fun goToPokedexNavigation(navController: NavController) {
         navController.navigate("pokedexHomeScreen")

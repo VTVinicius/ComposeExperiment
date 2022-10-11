@@ -6,10 +6,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.sp
 import com.example.uikit.R
 import uikit.theme.ComposeTheme.typography
 
@@ -74,17 +72,26 @@ fun TitleBoldText(text: String, textColor: Int = R.color.black, modifier: Modifi
 }
 
 @Composable
-fun ButtonText(text: String, textColor: Int = R.color.black) {
+fun ButtonText(text: String, textColor: Int = R.color.black, modifier: Modifier) {
     Text(
         text = text,
+        modifier = modifier,
         style = TextStyle(
             fontFamily = typography.button.fontFamily,
             color = colorResource(id = textColor)
-        )
+        ),
+        fontSize = typography.button.fontSize,
+        fontWeight = typography.button.fontWeight
     )
 }
+
 @Composable
-fun NormalText(text: String, colors: Color = Color.White, align: TextAlign = TextAlign.Center, modifier: Modifier = Modifier) {
+fun NormalText(
+    text: String,
+    colors: Color = Color.White,
+    align: TextAlign = TextAlign.Center,
+    modifier: Modifier = Modifier
+) {
     Text(
         modifier = modifier,
         textAlign = align,
@@ -99,7 +106,12 @@ fun NormalText(text: String, colors: Color = Color.White, align: TextAlign = Tex
 }
 
 @Composable
-fun Title20Text(text: String, colors: Color = Color.White, align: TextAlign = TextAlign.Center, modifier: Modifier = Modifier) {
+fun Title20Text(
+    text: String,
+    colors: Color = Color.White,
+    align: TextAlign = TextAlign.Center,
+    modifier: Modifier = Modifier
+) {
     Text(
         modifier = modifier,
         textAlign = align,
@@ -112,8 +124,14 @@ fun Title20Text(text: String, colors: Color = Color.White, align: TextAlign = Te
         fontWeight = typography.title20.fontWeight
     )
 }
+
 @Composable
-fun Title20BoldText(text: String, colors: Color = Color.White, align: TextAlign = TextAlign.Center, modifier: Modifier = Modifier) {
+fun Title20BoldText(
+    text: String,
+    colors: Color = Color.Black,
+    align: TextAlign = TextAlign.Center,
+    modifier: Modifier = Modifier
+) {
     Text(
         modifier = modifier,
         textAlign = align,
@@ -128,7 +146,12 @@ fun Title20BoldText(text: String, colors: Color = Color.White, align: TextAlign 
 }
 
 @Composable
-fun Title18Text(text: String, colors: Color = Color.White, align: TextAlign = TextAlign.Center, modifier: Modifier = Modifier) {
+fun Title18Text(
+    text: String,
+    colors: Color = Color.Black,
+    align: TextAlign = TextAlign.Center,
+    modifier: Modifier = Modifier
+) {
     Text(
         modifier = modifier,
         textAlign = align,
@@ -143,7 +166,12 @@ fun Title18Text(text: String, colors: Color = Color.White, align: TextAlign = Te
 }
 
 @Composable
-fun Title18BoldText(text: String, colors: Color = Color.White, align: TextAlign = TextAlign.Center, modifier: Modifier = Modifier) {
+fun Title18BoldText(
+    text: String,
+    colors: Color = Color.White,
+    align: TextAlign = TextAlign.Center,
+    modifier: Modifier = Modifier
+) {
     Text(
         modifier = modifier,
         textAlign = align,
@@ -156,8 +184,14 @@ fun Title18BoldText(text: String, colors: Color = Color.White, align: TextAlign 
         fontWeight = typography.title18Bold.fontWeight
     )
 }
+
 @Composable
-fun TitleText(text: String, colors: Color = Color.White, align: TextAlign = TextAlign.Center, modifier: Modifier = Modifier) {
+fun TitleText(
+    text: String,
+    colors: Color = Color.White,
+    align: TextAlign = TextAlign.Center,
+    modifier: Modifier = Modifier
+) {
     Text(
         modifier = modifier,
         textAlign = align,
@@ -170,8 +204,14 @@ fun TitleText(text: String, colors: Color = Color.White, align: TextAlign = Text
         fontWeight = typography.title22.fontWeight
     )
 }
+
 @Composable
-fun BigTitleText(text: String, colors: Color = Color.White, align: TextAlign = TextAlign.Center, modifier: Modifier = Modifier) {
+fun BigTitleText(
+    text: String,
+    colors: Color = Color.White,
+    align: TextAlign = TextAlign.Center,
+    modifier: Modifier = Modifier
+) {
     Text(
         modifier = modifier,
         textAlign = align,
@@ -186,7 +226,13 @@ fun BigTitleText(text: String, colors: Color = Color.White, align: TextAlign = T
 }
 
 @Composable
-fun SubtitleText(text: String, colors: Color = Color.White, align: TextAlign = TextAlign.Center, modifier: Modifier = Modifier, maxLines: Int = 10) {
+fun SubtitleText(
+    text: String,
+    colors: Color = Color.White,
+    align: TextAlign = TextAlign.Center,
+    modifier: Modifier = Modifier,
+    maxLines: Int = 10
+) {
     Text(
         maxLines = maxLines,
         modifier = modifier,
@@ -201,8 +247,14 @@ fun SubtitleText(text: String, colors: Color = Color.White, align: TextAlign = T
         overflow = TextOverflow.Ellipsis,
     )
 }
+
 @Composable
-fun SubtitleBoldText(text: String, colors: Color = Color.White, align: TextAlign = TextAlign.Center, modifier: Modifier = Modifier) {
+fun SubtitleBoldText(
+    text: String,
+    colors: Color = Color.White,
+    align: TextAlign = TextAlign.Center,
+    modifier: Modifier = Modifier
+) {
     Text(
         modifier = modifier,
         textAlign = align,
@@ -217,7 +269,12 @@ fun SubtitleBoldText(text: String, colors: Color = Color.White, align: TextAlign
 }
 
 @Composable
-fun NormalBoldText(text: String, colors: Color = Color.White, align: TextAlign = TextAlign.Center, modifier: Modifier = Modifier) {
+fun NormalBoldText(
+    text: String,
+    colors: Color = Color.White,
+    align: TextAlign = TextAlign.Center,
+    modifier: Modifier = Modifier
+) {
     Text(
         modifier = modifier,
         textAlign = align,
@@ -232,7 +289,12 @@ fun NormalBoldText(text: String, colors: Color = Color.White, align: TextAlign =
 }
 
 @Composable
-fun NormalSmallText(text: String, colors: Color = Color.White, align: TextAlign = TextAlign.Center, modifier: Modifier = Modifier) {
+fun NormalSmallText(
+    text: String,
+    colors: Color = Color.White,
+    align: TextAlign = TextAlign.Center,
+    modifier: Modifier = Modifier
+) {
     Text(
         modifier = modifier,
         textAlign = align,
@@ -247,7 +309,12 @@ fun NormalSmallText(text: String, colors: Color = Color.White, align: TextAlign 
 }
 
 @Composable
-fun SmallBoldText(text: String, colors: Color = Color.White, align: TextAlign = TextAlign.Center, modifier: Modifier = Modifier) {
+fun SmallBoldText(
+    text: String,
+    colors: Color = Color.White,
+    align: TextAlign = TextAlign.Center,
+    modifier: Modifier = Modifier
+) {
     Text(
         modifier = modifier,
         textAlign = align,
@@ -260,8 +327,14 @@ fun SmallBoldText(text: String, colors: Color = Color.White, align: TextAlign = 
         fontWeight = typography.normalSmallBold.fontWeight
     )
 }
+
 @Composable
-fun SmallText(text: String, colors: Color = Color.White, align: TextAlign = TextAlign.Center, modifier: Modifier = Modifier) {
+fun SmallText(
+    text: String,
+    colors: Color = Color.White,
+    align: TextAlign = TextAlign.Center,
+    modifier: Modifier = Modifier
+) {
     Text(
         modifier = modifier,
         textAlign = align,

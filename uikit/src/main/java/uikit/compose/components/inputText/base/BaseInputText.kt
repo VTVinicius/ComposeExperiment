@@ -145,8 +145,9 @@ fun BaseInputText(
         ) {
             if (styleType.errorMessage != "") {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_error_alert),
+                    painter = painterResource(id = R.drawable.ic_error_alert ),
                     tint = red,
+                    modifier = Modifier.size(16.dp),
                     contentDescription = "Error Icon"
                 )
 

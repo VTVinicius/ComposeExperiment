@@ -31,11 +31,10 @@ fun LayoutHomeScreen(listener: HomeNavigation?, navController: NavController) {
         Spacer(modifier = Modifier.height(48.dp))
 
         OutlineButton(
-            text = "Perfil",
-            onClick = { listener?.goToProfileNavigation(navController) },
+            text = "Exemplos",
+            onClick = { listener?.goToExamplesNavigation(navController) },
             backgroundColor = R.color.lightGreen
         )
-
 
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -44,6 +43,15 @@ fun LayoutHomeScreen(listener: HomeNavigation?, navController: NavController) {
             onClick = { listener?.goToPokedexNavigation(navController) },
             backgroundColor = R.color.lightGreen
         )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        OutlineButton(
+            text = "Perfil",
+            onClick = { listener?.goToProfileNavigation(navController) },
+            backgroundColor = R.color.lightGreen
+        )
+
 
     }
 }

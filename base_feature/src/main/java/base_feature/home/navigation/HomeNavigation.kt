@@ -8,6 +8,7 @@ interface HomeNavigation {
     fun goToProfileNavigation(navController: NavController)
     fun goToHomeNavigation(navController: NavController)
     fun goToPokedexNavigation(navController: NavController)
+    fun goToExamplesNavigation(navController: NavController)
     fun goToHomeScreen(navController: NavController)
 
 }

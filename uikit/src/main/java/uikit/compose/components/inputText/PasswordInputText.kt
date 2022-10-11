@@ -35,7 +35,7 @@ fun PasswordInputText(
     var error = remember { mutableStateOf(false) }
 
     LaunchedEffect(LocalContext.current) {
-        currentState.getPasswordIcon(R.drawable.ic_baseline_visibility_off_24)
+        currentState.getPasswordIcon(R.drawable.ic_eye_closed)
     }
 
     if (showError) {
@@ -65,10 +65,10 @@ fun PasswordInputText(
         onIconClick = {
             if (passwordVisualTransformation is PasswordVisualTransformation) {
                 passwordVisualTransformation = VisualTransformation.None
-                currentState.getPasswordIcon(R.drawable.ic_baseline_visibility_24)
+                currentState.getPasswordIcon(R.drawable.ic_eye_open)
             } else {
                 passwordVisualTransformation = PasswordVisualTransformation()
-                currentState.getPasswordIcon(R.drawable.ic_baseline_visibility_off_24)
+                currentState.getPasswordIcon(R.drawable.ic_eye_closed)
             }
         },
         onSearch = {

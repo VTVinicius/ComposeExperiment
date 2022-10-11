@@ -63,8 +63,8 @@ data class AppTypography(
         fontSize = 14.sp
     ),
     val button: TextStyle = TextStyle(
-        fontFamily = arialRegular,
-        fontWeight = FontWeight.Normal,
+        fontFamily = arialBold,
+        fontWeight = FontWeight.Bold,
         fontSize = 16.sp
     ),
     val buttonBig: TextStyle = TextStyle(

@@ -4,7 +4,9 @@ ext {
             [configuration: "testImplementation", dependency: "$mockitoKotlin"],
             [configuration: "testImplementation", dependency: "$kotlinJunit"],
             [configuration: "testImplementation", dependency: "$koinTest"],
-            [configuration: "testImplementation", dependency: "$kotlinTest"]
+            [configuration: "testImplementation", dependency: "$kotlinTest"],
+            [configuration: "testImplementation", dependency: "$mockitoInline"],
+
     ]
 
     androidTestCommonsDependencies = testCommonsDependencies + [
@@ -13,7 +15,9 @@ ext {
             [configuration: "androidTestImplementation", dependency: "$androidTestRunner"],
             [configuration: "androidTestImplementation", dependency: "$androidCoreTest"],
             [configuration: "androidTestImplementation", dependency: "$coreTesting"],
-            [configuration: "androidTestImplementation", dependency: "$arch"]
+            [configuration: "androidTestImplementation", dependency: "$arch"],
+            [configuration: "androidTestImplementation", dependency: "$linkedinMockito"],
+            [configuration: "androidTestImplementation", dependency: "$composeTest"]
     ]
 
     testAppDependencies = testCommonsDependencies + [
